@@ -78,63 +78,23 @@ let appData = {
 	},
 	chooseIncome: function() {
 		let  items = prompt('Что принесет дополнительный доход? (Перечислите через запятую)', '');
-		appData.income = items.split(', ');
-		appData.income.push(prompt('Может что-то еще?'));
-		appData.income.sort();
+		if ( typeof(items) === 'string' && typeof(items) != null && typeof(items) != '')  {
+			appData.income = items.split(', ');
+		    appData.income.push(prompt('Может что-то еще?'));
+			appData.income.sort();
+		} else {
+			console.log('Вы ввели не корректные данные!')
+		};
+
+		appData.income.forEach(function(item, i){
+			alert('Способы доп. заработка: ' + (i+1) + ' - ' + item);
+		});
 	}
 };
 
-/* chooseExpenses(); */   /* Вызов функции chooseExpenses */
-/* let a1 = prompt('Введите обязательную статью расходов в этом месяце', ''),
-    a2 = prompt('Во сколько обойдется?', ''), */
-  
-/* appData.MandatoryExpenses.a1 = a2;
-appData.nonMandatoryExpenses.a3 = a4; */
+for (let key in appData) {
+	console.log('Наша программа включает в себя данные: ' + key + '-' +appData[key]);
+};
 
  
-/* appData.moneyPerDay = (appData.budget / 30).toFixed();  */   /*  .toFixed округляет число до того знака, который указан в скобках (Оно возвращает строковок значение переменной)*/
-
-/* alert((appData.budget / 30).toFixed()); */
-
-/* function detectLevel() {
-	if (appData.moneyPerDay < 100) {
-		console.log('Минимальный уровень достатка');
-	} else if (appData.moneyPerDay > 100 && appData.moneyPerDay < 2000) {
-		console.log('Средний уровень достатка');
-	} else if (appData.moneyPerDay > 2000) {
-		console.log('Высокий уровень достатка');
-	} else {
-		console.log('Ошибка');
-	};
-}; */
-
-/* detectLevel(); */
-
-
-
-/* function checkSavings() {
-    if (appData.savings == true) {
-        let save = +prompt('Какова сумма накоплений?'),
-            percent = +prompt('Под какой процент?');
-
-            appData.monthIncome = save / 100 / 12 * percent;
-            alert('Доход в месяц с вашего депозита:' + appData.monthIncome);
-            
-        
-    }
-}
-checkSavings(); */
-
- 
-
-/* function chooseOptExpenses() { */
-	/* Функция необязательных расходов */
-/* 	for (let i = 0; i < 3; i++) {
-        let questionOptExpenses = prompt('Статья необязательных расходов', '')
-        appData.nonMandatoryExpenses[i] = questionOptExpenses;
-        console.log('Статья необязательных расходов: ' + questionOptExpenses)
-    };
-}; */
-
-/* chooseOptExpenses(); */
     
